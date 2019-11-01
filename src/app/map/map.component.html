@@ -1,1 +1,28 @@
-<div #mapViewNode></div>
+<div class="map" [class.hide-markers]="hideMarkers">
+  <div #mapViewNode></div>
+
+  <div 
+    class="flag" 
+    *ngFor="let location of locations"
+    [ngStyle]="{
+      top: (location.position.y - 139) + 'px', 
+      left: (location.position.x - 1.5) + 'px'
+    }"
+    (click)="showMarkerInfo(location)"
+  >
+    <div class="flag-pole"></div>
+    <div class="flag-content">
+      <div class="flag-header">
+          {{ location.name }}<br>
+          {{ location.location_name }}
+      </div>
+      <div class="flag-data" *ngFor="let datum of location.data">
+        <div class="flag-data-item">{{ datum.name }}</div>
+        <div class="flag-data-item text-right">{{ datum.value }}</div>
+      </div>
+        
+    </div>
+  </div>
+
+</div>
+

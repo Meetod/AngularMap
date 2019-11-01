@@ -1,5 +1,72 @@
 @import url('https://js.arcgis.com/4.12/esri/css/main.css');
 
+
+body {
+  
+}
+
 .esri-view {
-  height: 500px;
+  height: 100vh;
+}
+
+.map {
+  position: relative;
+  overflow: hidden;
+
+  &.hide-markers {
+    .flag {
+      display: none;
+    }
+  }
+}
+
+.flag {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 999;
+  
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 12px;
+
+  cursor: pointer;
+
+}
+
+.flag-pole {
+  height: 140px;
+  width: 4px;
+  background-color: black;    
+}
+
+.flag-content {
+  margin-top: 4px;
+  background-color: white;
+  width: 90px;
+}
+
+.flag-header {
+  background-color: #ccc;
+  padding: 4px 8px;
+  font-weight: 600;
+}
+
+.flag-data {
+  display: flex;
+  justify-content: space-between;
+  background-color: #eee;
+
+}
+
+.flag-data-item {
+  border-top: 1px solid #ccc;
+  padding: 4px 8px;
+  width: 50%;
+
+  &.text-right {
+    text-align: right;
+  }
 }
